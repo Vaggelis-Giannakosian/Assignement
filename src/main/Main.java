@@ -1,7 +1,11 @@
 package main;
+import connect.*;
 
+import java.sql.SQLException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+
+
 
 public class Main {
 
@@ -19,6 +23,9 @@ public class Main {
 
     public static void function4()
     {
+        String query="select name from owner2";
+        export(query);
+
     }
 
     public static boolean closemenu()
@@ -27,9 +34,9 @@ public class Main {
         return finished;
     }
 
-    public static void export() {
+    public static void export(String query) {
         boolean finished=false;
-            while(!finished){
+            do {
                 try {
                     Scanner keyboard = new Scanner(System.in);
                     System.out.println("---- Enter export type:");
@@ -37,28 +44,34 @@ public class Main {
                     System.out.println("2. Console");
                     int choice = keyboard.nextInt();
                     if (choice == 1) {
-                        finished=true;
+
                         toFile();
-                    } else if (choice == 2){
-                        toConsole();
-                        finished=true;
-                    }
-                    else {
+                        finished = true;
+                    } else if (choice == 2) {
+
+                        toConsole(query);
+                        finished = true;
+
+                    } else {
                         System.out.println("Invalid Input, choose again.");
                     }
+                } catch (InputMismatchException e) {
+                    System.out.println("Invalid Input, please select one of the given options.");
                 }
-                catch (InputMismatchException e) {
-                  System.out.println("Invalid Input, please select one of the given options.");
-          }
-        }
+            } while(!finished);
     }
 
     public static void toFile()
     {
         }
 
-    public static void toConsole()
+    public static void toConsole(String query)
     {
+        try {
+            connect.SqlConnection.connect(query);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         }
 
     public static void main(String[] args) throws InputMismatchException {
@@ -78,19 +91,18 @@ public class Main {
                 switch (choice) {
                     case 1:
                         function1();
-                        export(;
-                        break;)
+                        break;
                     case 2:
                         function2();
-                        export();
+
                         break;
                     case 3:
                         function3();
-                        export();
+
                         break;
                     case 4:
                         function4();
-                        export();
+
                         break;
                     case 5:
                         finished = closemenu();
