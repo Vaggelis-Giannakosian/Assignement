@@ -9,11 +9,6 @@ import java.util.Scanner;
 
 public class Main {
 
-    /**
-     * vaze kai kanena sxolio me aftin tin morfi
-     * ok?
-     * l
-     */
     private static void function1()
     {
         Scanner keyboard = new Scanner(System.in);
