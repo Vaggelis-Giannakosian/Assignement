@@ -1,5 +1,5 @@
 package main;
-import connect.*;
+
 
 import java.sql.SQLException;
 import java.util.InputMismatchException;
@@ -9,32 +9,49 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static void function1()
+    /**
+     * vaze kai kanena sxolio me aftin tin morfi
+     * ok?
+     * l
+     */
+    private static void function1()
     {
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("Give id: ");
+        int choice = keyboard.nextInt();
+        String query="select name from owner2 where id="+choice+"";
+
+        int flag=1;
+        export(query,flag);
     }
 
-    public static void function2()
-    {
+    private static void function2()
+    {   String query="";
+
+        int flag=1;
+        export(query,flag);
     }
 
-    public static void function3()
+    private static void function3()
     {
+
+        int flag=1;
+        export(query,flag);
     }
 
-    public static void function4()
+    private static void function4()
     {
-        String query="select name from owner2";
-        export(query);
 
+        int flag=1;
+        export(query,flag);
     }
 
-    public static boolean closemenu()
+    private static boolean closemenu()
     {
-        boolean finished = true;
-        return finished;
+        return true;
     }
 
-    public static void export(String query) {
+    private static void export(String query, int flag) {
         boolean finished=false;
             do {
                 try {
@@ -49,7 +66,7 @@ public class Main {
                         finished = true;
                     } else if (choice == 2) {
 
-                        toConsole(query);
+                        toConsole(query,flag);
                         finished = true;
 
                     } else {
@@ -61,14 +78,14 @@ public class Main {
             } while(!finished);
     }
 
-    public static void toFile()
+    private static void toFile()
     {
         }
 
-    public static void toConsole(String query)
+    private static void toConsole(String query,int flag)
     {
         try {
-            connect.SqlConnection.connect(query);
+            connect.SqlConnection.connect(query,flag);
         } catch (SQLException e) {
             e.printStackTrace();
         }
