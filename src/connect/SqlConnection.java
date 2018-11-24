@@ -1,5 +1,6 @@
 package connect;
-
+import java.time.LocalDate;
+import java.util.Date;
 import java.sql.*;
 
 
@@ -18,14 +19,14 @@ public class SqlConnection {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        //Dhmiourgia statement
+        /**Dhmiourgia statement*/
         Statement st = null;
         try {
             st = con.createStatement();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        //Dhmiourgia query kai apostolh
+        /**Dhmiourgia query kai apostolh*/
         ResultSet rs = null;
         switch (Flag){
             case 1: connectf1(query,rs,st);
@@ -54,10 +55,16 @@ public class SqlConnection {
                  } catch (SQLException e) {
                      e.printStackTrace();
                     }
-            //Dhmiourgia resultset
+          /**hmiourgia resultset*/
                     while (rs.next()) {
                   try {
-                    System.out.println(rs.getString(1));
+                    System.out.println(rs.getDate(1));
+                      LocalDate a = LocalDate.now();
+                      if (rs.getDate(1).compareTo(a)>0){
+
+
+                      }
+
                  } catch (SQLException e) {
                     e.printStackTrace();
                        }

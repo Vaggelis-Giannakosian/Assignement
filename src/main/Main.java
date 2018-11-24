@@ -1,49 +1,46 @@
 package main;
 
-
 import java.sql.SQLException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
-
-
 
 public class Main {
 
     /**
      * vaze kai kanena sxolio me aftin tin morfi
-     * ok?
-     * l
+     *
+     *
      */
     private static void function1()
     {
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println("Give id: ");
-        int choice = keyboard.nextInt();
-        String query="select name from owner2 where id="+choice+"";
 
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("Give Vehicle's plate Number: ");
+        String choice = keyboard.nextLine();
+        String query= ("select status from vehicle where vehiPlate=\""+choice+"\"");
         int flag=1;
         export(query,flag);
     }
 
     private static void function2()
-    {   String query="";
+    {
 
-        int flag=1;
-        export(query,flag);
+        int flag=2;
+        //export(query,flag);
     }
 
     private static void function3()
     {
 
-        int flag=1;
-        export(query,flag);
+        int flag=3;
+        //export(query,flag);
     }
 
     private static void function4()
     {
 
-        int flag=1;
-        export(query,flag);
+        int flag=4;
+        //export(query,flag);
     }
 
     private static boolean closemenu()
