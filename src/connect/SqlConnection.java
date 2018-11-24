@@ -6,6 +6,8 @@ import java.sql.*;
 
 public class SqlConnection {
 
+
+
     public static void connect(String query, int Flag)throws SQLException {
 
         try {
@@ -58,21 +60,14 @@ public class SqlConnection {
           /**hmiourgia resultset*/
                     while (rs.next()) {
                   try {
-                    System.out.println(rs.getDate(1));
-                      LocalDate a = LocalDate.now();
-                      if (rs.getDate(1).compareTo(a)>0){
+                    System.out.println(rs.getString(1));
 
-
-                      }
 
                  } catch (SQLException e) {
                     e.printStackTrace();
                        }
                  }
             }
-
-
-
 
 
 

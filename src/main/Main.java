@@ -17,7 +17,7 @@ public class Main {
         Scanner keyboard = new Scanner(System.in);
         System.out.println("Give Vehicle's plate Number: ");
         String choice = keyboard.nextLine();
-        String query= ("select status from vehicle where vehiPlate=\""+choice+"\"");
+        String query= ("select insuDayTo from insurance where insuId=\""+choice+"\"");
         int flag=1;
         export(query,flag);
     }
