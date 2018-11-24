@@ -1,5 +1,8 @@
 package connect;
 
+import Controllers.VehicleController;
+import Models.Vehicle;
+
 import java.sql.*;
 
 
@@ -55,7 +58,16 @@ public class SqlConnection {
                      e.printStackTrace();
                     }
             //Dhmiourgia resultset
+
                     while (rs.next()) {
+                        Vehicle veh = new Vehicle();
+                        veh.setVehID(rs.getInt(1));
+                        veh.setVehInsurance(rs.getInt(2));
+                        veh.setVehLicensePlate(rs.getInt(3));
+
+                        VehicleController vehcon =new VehicleController(vehicleList);
+
+
                   try {
                     System.out.println(rs.getString(1));
                  } catch (SQLException e) {

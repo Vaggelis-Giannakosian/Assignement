@@ -73,4 +73,5 @@ public class VehicleController {
     public void setVehicleList(ArrayList<Vehicle> vehicleList) {
         this.vehicleList = vehicleList;
     }
+
 }
